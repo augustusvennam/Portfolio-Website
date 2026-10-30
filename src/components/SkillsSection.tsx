@@ -14,15 +14,17 @@ export const SkillsSection: React.FC = () => {
   const getLevelBadge = (level?: string) => {
     switch (level) {
       case 'strongest':
-        return { label: 'Strongest', bg: 'bg-[#2997ff]/20 text-[#2997ff] border-[#2997ff]/30' };
+        return { label: 'Strongest', color: 'bg-[#2997ff]' };
       case 'real-use':
-        return { label: 'Real Production / Build', bg: 'bg-[#30d158]/20 text-[#30d158] border-[#30d158]/30' };
+        return { label: 'Real Production / Build', color: 'bg-[#30d158]' };
       case 'contributed':
-        return { label: 'Contributed Model / Training', bg: 'bg-[#bf5af2]/20 text-[#bf5af2] border-[#bf5af2]/30' };
+        return { label: 'Contributed Model / Training', color: 'bg-[#bf5af2]' };
       case 'working':
-        return { label: 'Working Familiarity', bg: 'bg-white/10 text-white/70 border-white/15' };
+        return { label: 'Working Familiarity', color: 'bg-white/70' };
+      case 'familiar':
+        return { label: 'Familiar', color: 'bg-white/35' };
       default:
-        return { label: 'Verified Skill', bg: 'bg-white/5 text-white/60 border-white/10' };
+        return { label: 'Verified Skill', color: 'bg-white/35' };
     }
   };
 
@@ -69,6 +71,22 @@ export const SkillsSection: React.FC = () => {
         </div>
       </div>
 
+      {/* Proficiency Legend */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 px-1 text-[11px] text-white/60">
+        <span className="font-mono uppercase tracking-wider text-white/40">
+          Proficiency
+        </span>
+        {(['strongest', 'real-use', 'contributed', 'working', 'familiar'] as const).map(level => {
+          const badge = getLevelBadge(level);
+          return (
+            <span key={level} className="flex items-center gap-1.5">
+              <span className={`h-2 w-2 rounded-full ${badge.color}`} />
+              {badge.label}
+            </span>
+          );
+        })}
+      </div>
+
       {/* Skills Matrix Groups */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {PORTFOLIO_DATA.skills.map((category, index) => (
@@ -99,9 +117,11 @@ export const SkillsSection: React.FC = () => {
                   >
                     <span className="font-medium">{skill.name}</span>
                     {skill.level && (
-                      <span className={`text-[10px] px-1.5 py-0.2 rounded border font-mono ${badge.bg}`}>
-                        {badge.label}
-                      </span>
+                      <span
+                        aria-label={badge.label}
+                        title={badge.label}
+                        className={`h-2 w-2 shrink-0 rounded-full ${badge.color}`}
+                      />
                     )}
                   </div>
                 );

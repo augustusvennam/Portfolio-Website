@@ -10,7 +10,6 @@ import {
   Check, 
   Copy, 
   X,
-  Cpu
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { sound } from '../utils/sound';
@@ -96,18 +95,6 @@ export const SpotlightCommand: React.FC<SpotlightProps> = ({
       action: () => window.open(PORTFOLIO_DATA.profile.linkedin, '_blank')
     },
     // Navigation items
-    {
-      id: 'nav-eeg',
-      type: 'nav',
-      title: 'BrainWaves Live EEG Simulator',
-      subtitle: 'Simulate WebSocket stream, basic metrics & heuristic classifier',
-      icon: Cpu,
-      category: 'Interactive Demo',
-      action: () => {
-        onNavigateSection('brainwaves-lab');
-        onClose();
-      }
-    },
     {
       id: 'nav-projects',
       type: 'nav',

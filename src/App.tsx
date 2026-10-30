@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { NavigationDock } from './components/NavigationDock';
 import { SpotlightCommand } from './components/SpotlightCommand';
 import { HeroSection } from './components/HeroSection';
-import { BrainWavesSimulator } from './components/BrainWavesSimulator';
 import { ProjectsGallery } from './components/ProjectsGallery';
 import { ProjectSheetModal } from './components/ProjectSheetModal';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
@@ -29,30 +28,44 @@ export function App() {
 
   // Section scroll tracker
   useEffect(() => {
-    const sections = ['overview', 'projects', 'brainwaves-lab', 'experience', 'skills', 'contact'];
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const offset = 200;
+    const sections = ['overview', 'projects', 'experience', 'skills', 'contact'];
+    let frameId: number | null = null;
 
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop - offset;
-          const height = el.offsetHeight;
-          if (scrollY >= top && scrollY < top + height) {
-            setActiveSection(sectionId);
-            break;
+    const handleScroll = () => {
+      if (frameId !== null) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        const marker = window.innerHeight * 0.35;
+        let currentSection = sections[0];
+
+        for (const sectionId of sections) {
+          const el = document.getElementById(sectionId);
+          if (el && el.getBoundingClientRect().top <= marker) {
+            currentSection = sectionId;
           }
         }
-      }
+
+        setActiveSection(previousSection =>
+          previousSection === currentSection ? previousSection : currentSection
+        );
+        frameId = null;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
 
   const handleNavigate = (sectionId: string) => {
-    setActiveSection(sectionId);
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -77,8 +90,8 @@ export function App() {
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
-          width: '650px',
-          height: '650px',
+          width: '100px',
+          height: '100px',
           background: 'radial-gradient(circle, rgba(41, 151, 255, 0.08) 0%, rgba(191, 90, 242, 0.03) 5%, transparent 10%)',
         }}
       />
@@ -105,7 +118,7 @@ export function App() {
       />
 
       {/* Main Container */}
-      <main className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-[1440px] mx-auto space-y-28 sm:space-y-40 pb-36 sm:pb-48">
+      <main className="relative z-10 px-4 sm:px-8 lg:px-16 max-w-[1440px] mx-auto space-y-0 sm:space-y-0 pb-30 sm:pb-48">
         {/* Hero Section */}
         <HeroSection
           onNavigateSection={handleNavigate}
@@ -116,25 +129,6 @@ export function App() {
         <ProjectsGallery
           onSelectProject={handleSelectProject}
         />
-
-        {/* BrainWaves / BrainBot Interactive Simulator Lab */}
-        <ScrollReveal distance={40}>
-          <section id="brainwaves-lab" className="py-12 sm:py-16 scroll-mt-24 space-y-6">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#2997ff] uppercase tracking-wider">
-                <span>Hardware & Systems Integration</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-                Interactive EEG Telepresence Lab
-              </h2>
-              <p className="text-sm sm:text-base text-white/60 max-w-3xl leading-relaxed">
-                Explore the real architecture of Augustus's flagship integration: streaming Emotiv EPOC X Cortex metrics through a typed React + WebSocket pipeline directly to a Temi robot.
-              </p>
-            </div>
-
-            <BrainWavesSimulator />
-          </section>
-        </ScrollReveal>
 
         {/* Experience & Leadership Timeline */}
         <ScrollReveal distance={40}>

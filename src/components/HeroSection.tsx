@@ -7,7 +7,7 @@ import {
   MapPin, 
   Bot, 
   Layout, 
-  Cpu, 
+  Cpu,
   GraduationCap
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
@@ -149,17 +149,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           >
             <span>Explore Featured Work</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
-
-          <button
-            onClick={() => {
-              sound.playPop();
-              onNavigateSection('brainwaves-lab');
-            }}
-            className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 text-white font-medium text-sm transition-all active:scale-[0.97]"
-          >
-            <Cpu className="w-4 h-4 text-[#2997ff]" />
-            <span>Interactive EEG Lab</span>
           </button>
 
           <button
