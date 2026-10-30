@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  X, 
-  ExternalLink, 
-  CheckCircle2, 
-  AlertCircle, 
+import {
+  X,
+  ExternalLink,
+  CheckCircle2,
   Calendar,
   Sparkles
 } from 'lucide-react';
@@ -97,29 +96,16 @@ export const ProjectSheetModal: React.FC<ProjectSheetModalProps> = ({
           </div>
 
           {/* Scrollable Body */}
-          <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-            {/* Honest Framing Callout (Prompt instruction: do not soften, preserve truth) */}
-            {project.honestFraming && (
-              <div className="p-4 rounded-2xl bg-[#ff9f0a]/10 border border-[#ff9f0a]/25 text-xs text-[#ff9f0a] space-y-1">
-                <div className="flex items-center gap-1.5 font-semibold text-sm text-[#ff9f0a]">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>Honest Engineering Framing & Boundaries</span>
-                </div>
-                <p className="leading-relaxed text-white/80">
-                  {project.honestFraming}
-                </p>
-              </div>
-            )}
-
+          <div className="flex-1 overflow-y-auto px-6 sm:px-8 pt-3 sm:pt-5 pb-6 sm:pb-8 space-y-4">
             {/* Overview & Role */}
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               <h4 className="text-xs font-mono uppercase tracking-wider text-white/40">
                 Role & Overview
               </h4>
               <p className="text-sm text-white/80 leading-relaxed">
                 {project.summary}
               </p>
-              <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs text-white/70">
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs text-white/70">
                 <strong className="text-white">Role:</strong> {project.role}
               </div>
             </div>

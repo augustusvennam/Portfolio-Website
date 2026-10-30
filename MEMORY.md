@@ -1,1 +1,0 @@
-- [Insert Images into ProjectsGallery] -- hook

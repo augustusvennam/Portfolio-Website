@@ -11,7 +11,6 @@ export interface Project {
   summary: string;
   role: string;
   stack: string[];
-  honestFraming?: string;
   keyStory?: string;
   technicalHighlights: string[];
   metricsOrState: string;
@@ -88,7 +87,6 @@ I like work where real people use the thing: a live church website tested by its
       video: asset("brainwaves-loop.mp4"),
       poster: asset("brainwaves-poster.jpg"),
       stack: ["React 19", "TypeScript", "Vite", "WebSockets", "Emotiv Cortex API", "Temi Robot SDK", "Strict TSConfig"],
-      honestFraming: "Mood classification is a heuristic demonstration, not validated emotion detection — the repository README explicitly states this. Uses Cortex Basic streams (met/pow/dev/eq), no raw EEG, and no custom machine learning model. Hardware end-to-end run is pending (headset smoke test, Temi link test, participant run).",
       keyStory: "Built an explicit unavailable and offline UI state system instead of a blank screen, gracefully handling WebSocket drops and headset disconnects with typed reconnect cleanup.",
       technicalHighlights: [
         "11 automated tests passing, strict TypeScript type checking and Vite production build verified",
@@ -110,7 +108,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "UI/UX & React 19 Frontend Lead, with contributed PyTorch CNN model training cycles and fine-tuning setup.",
       image: asset("SmartWrite.jpg"),
       stack: ["React 19", "PyTorch (Contributed)", "Canva Prototyping", "UX Heuristics", "Computer Vision"],
-      honestFraming: "Framing is always 'helped/contributed' on the PyTorch CNN training — never sole model builder. The frontend repo lives under a teammate's account (pending link).",
       keyStory: "Developers tested the interface on an interactive Canva mock prototype. Their feedback relocated primary action buttons, redesigned the demo workflow, and introduced structured component boundaries informed by heuristic evaluation.",
       technicalHighlights: [
         "Iterative prototype feedback cycle: Canva wireframe -> developer testing -> refined React 19 UI",
@@ -134,7 +131,6 @@ I like work where real people use the thing: a live church website tested by its
       video: asset("heavenbound-loop.mp4"),
       poster: asset("heavenbound-poster.jpg"),
       stack: ["WordPress", "Elementor", "UX Usability Testing", "Information Architecture", "Audio-Visual Integration"],
-      honestFraming: "Real production site with active weekly community users. Maintained continuously for over 4 years.",
       keyStory: "Restructured navigation around how church members actually look up weekly sermons, volunteer schedules, and ministries. Church members tested live staging updates before full public deployment.",
       technicalHighlights: [
         "Continuous 4+ year production lifecycle with quality assurance before every release",
@@ -156,7 +152,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Independent research & development.",
       image: asset("Semi-Local Personal AI Agent Workflows_Hermes, Muse, Claude Code, Boardy.png"),
       stack: ["Agentic AI Workflows", "Model Context Protocol", "Process Automation", "Local LLMs", "Workflow Management"],
-      honestFraming: "Independent ongoing research. No product, user, or performance claims are recorded for this work — strictly architecture and pipeline design.",
       keyStory: "Constructing hybrid agent harnesses that isolate sensitive data locally while delegating complex reasoning loops to high-capability models.",
       technicalHighlights: [
         "Hybrid execution pipeline balancing local context privacy with external LLM reasoning",
@@ -177,7 +172,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Collaborator on a multidisciplinary team build.",
       image: asset("Nvidia Jetson Nano.jpeg"),
       stack: ["NVIDIA Jetson Nano", "OpenCV", "Embedded Linux", "Computer Vision", "GPU Inference"],
-      honestFraming: "Team build. No accuracy or performance claims are recorded or invented.",
       keyStory: "Calibrated camera pipeline and OpenCV inference loops to operate within the thermal and power limits of the Jetson Nano developer kit.",
       technicalHighlights: [
         "Onboard GPU inference pipeline utilizing OpenCV CUDA acceleration",
@@ -198,7 +192,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Sole builder of the Flutter application and Android native bridge.",
       image: asset("TEMI FAQ app.jpg"),
       stack: ["Flutter", "Dart", "Android Kotlin Bridge", "Temi SDK", "MethodChannel", "TTS Fallback"],
-      honestFraming: "Working familiarity with Dart and Android SDK. Native Kotlin bridge constructed for Temi platform integration.",
       keyStory: "Implemented a graceful text-to-speech fallback pipeline: if the robot's proprietary audio hardware was disconnected, the UI automatically routed speech to native system TTS.",
       technicalHighlights: [
         "Flutter to Temi SDK bridge via asynchronous MethodChannel in Kotlin",
@@ -219,7 +212,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Lead builder & programmer.",
       image: asset("AV soccer bot.jpg"),
       stack: ["VEX Platform", "VEXcode", "C++ / RobotC", "Drivetrain Mechanics"],
-      honestFraming: "Designed specifically as a reliable, responsive showcase robot for public visitor hands-on driving.",
       keyStory: "Geared for agile maneuverability and high durability under continuous public use by visiting high school students.",
       technicalHighlights: [
         "Custom high-traction omnidirectional drivetrain",
@@ -240,7 +232,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Mechanical lead — frame structural design, 3D-printed scoop, drivetrain and control integration.",
       image: asset("Tetrix minimax.jpg"),
       stack: ["TETRIX", "Arduino", "3D Printing (CAD)", "Drivetrain Design", "Mechanical Prototyping"],
-      honestFraming: "Hardware and mechanical focus. Hands-on rapid prototyping with additive manufacturing.",
       keyStory: "Iterated 3 versions of the front intake scoop using CAD and 3D printing to maximize game-piece capture rate under competition constraints.",
       technicalHighlights: [
         "Custom CAD-modelled structural mounting brackets and scoop",
@@ -262,7 +253,6 @@ I like work where real people use the thing: a live church website tested by its
       role: "Independent developer.",
       image: asset("TempoSet.jpg"),
       stack: ["Flutter", "Dart", "SQLite", "SoLoud Audio Engine"],
-      honestFraming: "Feature detail beyond the stack is not recorded. Independent exploration of mobile audio architecture.",
       keyStory: "Integrating SoLoud native low-latency audio engine with Flutter for jitter-free rhythmic precision.",
       technicalHighlights: [
         "Low-latency audio engine bindings with SoLoud",

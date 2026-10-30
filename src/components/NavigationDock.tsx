@@ -11,6 +11,7 @@ import {
   Mail
 } from 'lucide-react';
 import { sound } from '../utils/sound';
+import logoImg from '../assets/Augustus Vennam Logo.png';
 
 interface NavigationDockProps {
   activeSection: string;
@@ -54,13 +55,20 @@ export const NavigationDock: React.FC<NavigationDockProps> = ({
           }}
           className="flex shrink-0 items-center gap-2 px-2.5 py-2 rounded-xl hover:bg-white/5 transition-all text-left group"
         >
-          <div className="hidden md:block">
-            <span className="text-xs font-semibold text-white/90 tracking-tight group-hover:text-white transition-colors text-center group">
-              Augustus Vennam
-            </span>
-            <span className="text-[8.5px] text-white/40 block leading-none mt-0.5">
-              Laurier CS + UX
-            </span>
+          <div className="hidden md:flex md:items-center md:gap-2">
+            <img
+              src={logoImg}
+              alt="Augustus Vennam logo"
+              className="w-12 h-12 rounded-md object-contain shrink-0"
+            />
+            <div>
+              <span className="text-xs font-semibold text-white/90 tracking-tight group-hover:text-white transition-colors text-center group">
+                Augustus Vennam
+              </span>
+              <span className="text-[8.5px] text-white/40 block leading-none mt-0.5">
+                Laurier CS + UX
+              </span>
+            </div>
           </div>
         </button>
 

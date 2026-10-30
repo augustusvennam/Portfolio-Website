@@ -13,6 +13,7 @@ import {
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { sound } from '../utils/sound';
+import logoImg from '../assets/Augustus Vennam Logo.png';
 
 interface HeroSectionProps {
   onNavigateSection: (sectionId: string) => void;
@@ -97,41 +98,56 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </motion.div>
 
         {/* Hero Title & Identity */}
-        <div className="space-y-5">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05]"
-          >
-            Augustus Vennam
-          </motion.h1>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
+          <div className="space-y-5 max-w-3xl flex-1">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05] whitespace-nowrap"
+            >
+              Augustus Vennam
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-2xl lg:text-3xl text-white/70 font-normal max-w-4xl leading-relaxed tracking-tight"
-          >
-            Computer Science student with a UX Design minor at <strong className="text-white font-medium">Wilfrid Laurier University</strong> — building AI agent workflows, frontend experiences, and embedded robotics systems.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-lg sm:text-2xl lg:text-3xl text-white/70 font-normal leading-relaxed tracking-tight"
+            >
+              Computer Science student with a UX Design minor at <strong className="text-white font-medium">Wilfrid Laurier University</strong>, building AI agent workflows, frontend experiences, and embedded robotics systems.
+            </motion.p>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/50 pt-1"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="shrink-0 hidden lg:flex"
           >
-            <span className="flex items-center gap-1.5">
-              <GraduationCap className="w-3.5 h-3.5 text-[#2997ff]" />
-              Expected Graduation: August 2028
-            </span>
-            <span>•</span>
-            <span>Vice President, Laurier Robotics Innovation Student Society (LRIS)</span>
-            <span>•</span>
-            <span>Student Ambassador for Laurier</span>
+            <img
+              src={logoImg}
+              alt="Augustus Vennam logo"
+              className="w-50 h-50 xl:w-90 xl:h-90 object-contain drop-shadow-2xl translate-x-[-4rem] translate-y-0 translate-z-0"
+            />
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/50 pt-1"
+        >
+          <span className="flex items-center gap-1.5">
+            <GraduationCap className="w-3.5 h-3.5 text-[#2997ff]" />
+            Expected Graduation: August 2028
+          </span>
+          <span>•</span>
+          <span>Vice President, Laurier Robotics Innovation Student Society (LRIS)</span>
+          <span>•</span>
+          <span>Student Ambassador for Laurier</span>
+        </motion.div>
 
         {/* Primary Tactile Buttons */}
         <motion.div
