@@ -133,8 +133,26 @@ export const ProjectsGallery: React.FC<ProjectsGalleryProps> = ({
                 {/* Project image slot */}
                 <div
                   aria-label={`${project.title} project image`}
-                  className="mb-5 aspect-video rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent"
-                />
+                  className="mb-5 aspect-video rounded-2xl border border-white/[0.06] bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-transparent overflow-hidden"
+                >
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      poster={project.poster}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-contain"
+                    />
+                  ) : project.image ? (
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project image`}
+                      className="w-full h-full object-contain"
+                    />
+                  ) : null}
+                </div>
 
                 <div className="space-y-4">
                   {/* Top Bar: Badge + Period */}
