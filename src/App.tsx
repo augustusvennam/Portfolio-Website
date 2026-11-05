@@ -81,6 +81,12 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-black text-[#f5f5f7] relative selection:bg-[#2997ff]/30 selection:text-white overflow-x-hidden">
+      {/* Ambient edge gradient blobs */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-white/[0.12] via-white/[0.04] to-transparent blur-[60px] translate-x-1/4 -translate-y-1/4" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-white/[0.10] via-white/[0.03] to-transparent blur-[50px] -translate-x-1/4 translate-y-1/4" />
+      </div>
+
       {/* Top Apple Scroll Progress Bar */}
       <ScrollProgressBar />
 
